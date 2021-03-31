@@ -1,5 +1,9 @@
 package com.vicente.exploringspring;
 
+import com.vicente.exploringspring.movie.*;
+
+import java.time.LocalDate;
+import java.time.Month;
 import java.util.List;
 
 import org.springframework.boot.SpringApplication;
@@ -16,7 +20,9 @@ public class ExploringspringApplication {
 
 	// RESTful endpoint to return a JSON
 	@GetMapping
-	public List<String> hello() {
-		return List.of("Hello", "world!");
+	public List<Movie> hello() {
+		return List.of(
+			new Movie(1L, "The Martian", "An astronaut left on Mars", LocalDate.of(2015, Month.SEPTEMBER, 11), 6)
+		);
 	}
 }
