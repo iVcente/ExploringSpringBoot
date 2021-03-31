@@ -22,4 +22,8 @@ public class MovieService {
 		return movieRepository.findAll(); // Spring JPA magic, interface implemented
 		// return List.of(new Movie(1L, "The Martian", "An astronaut left on Mars", LocalDate.of(2015, Month.SEPTEMBER, 11), 6)); // Old way of doing it without the database and JPA
 	}
+
+	public void addNewMovie(Movie movie) {
+		System.out.println(movie);
+	}
 }
