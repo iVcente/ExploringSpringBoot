@@ -32,4 +32,13 @@ public class MovieService {
 
 		movieRepository.save(movie);
 	}
+
+	public void removeMovieById(Long movieId) {
+		boolean exists = movieRepository.existsById(movieId);
+
+		if (!exists)
+			throw new IllegalStateException("We didn't find any movie with this ID: " + movieId + " :(");
+
+		movieRepository.deleteById(movieId);
+	}
 }
