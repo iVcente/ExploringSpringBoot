@@ -3,6 +3,7 @@
 package com.vicente.exploringspring.movie;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,11 @@ public class MovieService {
 	}
 
 	public void addNewMovie(Movie movie) {
-		System.out.println(movie);
+		Optional<Movie> movieOptional = movieRepository.findMovieByTitle(movie.getTitle());
+
+		if (movieOptional.isPresent())
+			throw new IllegalStateException("Movie already registered!");
+
+		movieRepository.save(movie);
 	}
 }
