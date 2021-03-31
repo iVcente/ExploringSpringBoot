@@ -2,7 +2,21 @@ package com.vicente.exploringspring.movie;
 
 import java.time.LocalDate;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+// These notations below have the purpose to map this movie to our database
+@Entity // For hibernate
+@Table // For the table in our database
 public class Movie {
+    // Theses notations below have the purpose to make the database generate the movie id
+    @Id
+    @SequenceGenerator(name = "movie_sequence", sequenceName = "movie_sequence", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "movie_sequence") // Default/Recommended por Postgres
     private Long id;
     private String title;
     private String synopsis;
