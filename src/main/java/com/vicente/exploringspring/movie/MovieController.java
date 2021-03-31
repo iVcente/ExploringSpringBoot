@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController // This annotation makes this class serve RESTful endpoints
-@RequestMapping(path = "api/v1/movie") // Instead of 'localhost:8080', now it is 'localhost:8080/path'
+@RequestMapping(path = "api/movie") // Instead of 'localhost:8080', now it is 'localhost:8080/path'
 public class MovieController {
 
-    private final MovieService movieService; // We tell that this is a class that has to be instanciated, i.e., that is has to be a Spring Bean by using @Service/@Component notation on MovieService
+    private final MovieService movieService; // We tell that this is a class that has to be instanciated, i.e., that is has to be a Spring Bean by using @Service/@Component annotation on MovieService
 
     @Autowired // We are saying that this MovieService above^ should be autowired for us. It should be "magically" instanciated and then injected on the constructor below (movieService)
     public MovieController(MovieService movieService) {
@@ -27,7 +27,7 @@ public class MovieController {
         // this.movieService = new MovieService(); // Use dependency injection to avoid this
     }
 
-    // RESTful GET endpoint that returns a JSON. HTTP method/verb GET to get information. Example: http://localhost:8080/api/v1/movie
+    // RESTful GET endpoint that returns a JSON. HTTP method/verb GET to get information. Example: http://localhost:8080/api/movie
 	@GetMapping
     public List<Movie> getMovies() {
         return movieService.getMovies();
@@ -42,17 +42,17 @@ public class MovieController {
      *          }
      */
     @PostMapping
-    public void registerNewMovie(@RequestBody Movie movie) { // This notation because we want to take to movie that comes from the client. We want to map the JSON into this movie by taking it from the request body, i.e., we take the request body and then map it into a movie 
+    public void registerNewMovie(@RequestBody Movie movie) { // This annotation because we want to take to movie that comes from the client. We want to map the JSON into this movie by taking it from the request body, i.e., we take the request body and then map it into a movie 
         movieService.addNewMovie(movie);
     }
 
-    // RESTful PUT endpoint to update a movie title by passing its ID and new title. Example http://localhost:8080/api/v1/movie/1?title=newTitle
+    // RESTful PUT endpoint to update a movie title by passing its ID and new title. Example http://localhost:8080/api/movie/1?title=newTitle
     @PutMapping(path = "{movieId}")
     public void updateMovie(@PathVariable("movieId") Long id, @RequestParam(required = false) String title) {
         movieService.updateMovie(id, title);
     }
 
-    // RESTful DELETE endpoint to delete movie by ID. Example: http://localhost:8080/api/v1/movie/1
+    // RESTful DELETE endpoint to delete movie by ID. Example: http://localhost:8080/api/movie/1
     @DeleteMapping(path = "{movieId}")
     public void deleteMovieById(@PathVariable("movieId") Long id) {
         movieService.removeMovieById(id);

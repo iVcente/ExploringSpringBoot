@@ -45,7 +45,7 @@ public class MovieService {
 		movieRepository.deleteById(movieId);
 	}
 
-	@Transactional // With this notation we don't have to use or implement any JPQL queries. We can use setters to update movie info in database
+	@Transactional // With this annotation we don't have to use or implement any JPQL queries. We can use setters to update movie info in database
 	public void updateMovie(Long id, String title) {
 		Movie movie = movieRepository.findById(id).orElseThrow(() -> new IllegalStateException("We didn't find any movie with this ID: " + id + " :("));
 

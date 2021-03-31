@@ -12,11 +12,11 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
-// These notations below have the purpose to map this movie to our database
+// These annotations below have the purpose to map this movie to our database
 @Entity // For hibernate
 @Table // For the table in our database
 public class Movie {
-    // Theses notations below have the purpose to make the database generate the movie id
+    // Theses annotations below have the purpose to make the database generate the movie id
     @Id
     @SequenceGenerator(name = "movie_sequence", sequenceName = "movie_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "movie_sequence") // Default/Recommended por Postgres
