@@ -14,8 +14,8 @@ public class MovieConfig {
     @Bean
     CommandLineRunner commandLineRunner(MovieRepository movieRepository) { // Injecting Repository
         return args -> {
-            Movie theMartian = new Movie("The Martian", "An astronaut left on Mars", LocalDate.of(2015, Month.SEPTEMBER, 11), 6);
-            Movie her = new Movie("Her", "A guy that dates his OS", LocalDate.of(2013, Month.OCTOBER, 12), 6); 
+            Movie theMartian = new Movie("The Martian", "An astronaut left on Mars.", LocalDate.of(2015, Month.SEPTEMBER, 11));
+            Movie her = new Movie("Her", "A guy that dates his OS.", LocalDate.of(2013, Month.OCTOBER, 12)); 
 
             movieRepository.saveAll(List.of(theMartian, her));
         };

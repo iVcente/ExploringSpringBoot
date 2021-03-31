@@ -1,13 +1,16 @@
 package com.vicente.exploringspring.movie;
 
 import java.time.LocalDate;
+import java.time.Period;
 
+import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 // These notations below have the purpose to map this movie to our database
 @Entity // For hibernate
@@ -21,25 +24,24 @@ public class Movie {
     private String title;
     private String synopsis;
     private LocalDate releaseDate;
+    @Transient // Basically says: this field/attribute below has no need to be a column in our database
     private Integer age;
 
     public Movie() {
 
     }
 
-    public Movie(String title, String synopsis, LocalDate releaseDate, Integer age) {
+    public Movie(String title, String synopsis, LocalDate releaseDate) {
         this.title = title;
         this.synopsis = synopsis;
         this.releaseDate = releaseDate;
-        this.age = age;
     }
 
-    public Movie(Long id, String title, String synopsis, LocalDate releaseDate, Integer age) {
+    public Movie(Long id, String title, String synopsis, LocalDate releaseDate) {
         this.id = id;
         this.title = title;
         this.synopsis = synopsis;
         this.releaseDate = releaseDate;
-        this.age = age;
     }
 
     public Long getId() {
@@ -59,7 +61,7 @@ public class Movie {
     }
 
     public Integer getAge() {
-        return age;
+        return Period.between(releaseDate, LocalDate.now()).getYears();
     }
 
     public void setTitle(String title) {
