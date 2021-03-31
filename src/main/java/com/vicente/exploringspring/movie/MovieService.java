@@ -3,7 +3,10 @@
 package com.vicente.exploringspring.movie;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -40,5 +43,13 @@ public class MovieService {
 			throw new IllegalStateException("We didn't find any movie with this ID: " + movieId + " :(");
 
 		movieRepository.deleteById(movieId);
+	}
+
+	@Transactional // With this notation we don't have to use or implement any JPQL queries. We can use setters to update movie info in database
+	public void updateMovie(Long id, String title) {
+		Movie movie = movieRepository.findById(id).orElseThrow(() -> new IllegalStateException("We didn't find any movie with this ID: " + id + " :("));
+
+		if (title != null && title.length() > 0 && !Objects.equals(movie.getTitle(), title))
+			movie.setTitle(title);
 	}
 }

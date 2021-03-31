@@ -11,4 +11,6 @@ public class ExploringspringApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ExploringspringApplication.class, args);
 	}
+
+	// Change server default port: java -jar packageName.jar --server.port=portNumber
 }
