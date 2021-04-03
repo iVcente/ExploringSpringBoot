@@ -1,6 +1,6 @@
 // API Layer -> provides endpoints. This class has all the resources for the API
 
-package com.vicente.exploringspring.movie;
+package com.exploringspring.springboot.movie;
 
 import java.util.List;
 

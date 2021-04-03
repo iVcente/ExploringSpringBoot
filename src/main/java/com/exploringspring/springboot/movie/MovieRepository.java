@@ -1,6 +1,6 @@
 // Data Access layer -> Anything that access the database and specifically when working with JPA. SomethingRepository is the naming convention for this class
 
-package com.vicente.exploringspring.movie;
+package com.exploringspring.springboot.movie;
 
 import java.util.Optional;
 

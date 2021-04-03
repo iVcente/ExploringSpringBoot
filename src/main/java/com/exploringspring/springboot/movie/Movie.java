@@ -1,4 +1,4 @@
-package com.vicente.exploringspring.movie;
+package com.exploringspring.springboot.movie;
 
 import java.time.LocalDate;
 import java.time.Period;

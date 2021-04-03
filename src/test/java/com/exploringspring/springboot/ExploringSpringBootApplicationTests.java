@@ -1,10 +1,10 @@
-package com.vicente.exploringspring;
+package com.exploringspring.springboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ExploringSpringApplicationTests {
+class ExploringSpringBootApplicationTests {
 
 	@Test
 	void contextLoads() {

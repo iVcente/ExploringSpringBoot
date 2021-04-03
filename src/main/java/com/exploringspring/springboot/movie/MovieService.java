@@ -1,6 +1,6 @@
 // Service Layer -> mainly responsible for business logic
 
-package com.vicente.exploringspring.movie;
+package com.exploringspring.springboot.movie;
 
 import java.util.List;
 import java.util.Objects;
