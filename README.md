@@ -6,7 +6,7 @@ How to run the program
 ---
 
 1. First of all, you need to have [PostgreSQL](https://www.postgresql.org/download/) installed on your machine;
-2. Open PostgreSQL and start it. Create a local database called "movie" and make sure it's running. If you don't know how to do that or are facing some problems, there's this Gist to help you;
+2. Open PostgreSQL and start it. Create a local database called "movie" and make sure it's running. If you don't know how to do that or are facing some problems, here's [how](https://youtu.be/9SGDpanrc8U?t=2175) I did;
 3. After downloading the project, run this command from inside its folder:
 `./mvnw install`. This will create a file with `.jar` extension so you can execute the program. Remember, if the database is not set up and running correctly, this will fail;
 4. Now, execute: `java -jar target/exploringspring-0.0.1-SNAPSHOT.jar`. After this, the server should be running;
